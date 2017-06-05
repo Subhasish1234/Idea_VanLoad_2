@@ -1,0 +1,57 @@
+C:\Users\username>npm install -g babel
+C:\Users\username\Desktop>mkdir reactApp
+
+C:\Users\username\Desktop>mkdir reactApp
+C:\Users\username\Desktop\reactApp>npm init
+
+C:\Users\username>npm install webpack --save
+C:\Users\username>npm install webpack-dev-server --save
+
+C:\Users\username\Desktop\reactApp>npm install react --save
+C:\Users\username\Desktop\reactApp>npm install react-dom --save
+
+C:\Users\username\Desktop\reactApp>npm install babel-core
+C:\Users\username\Desktop\reactApp>npm install babel-loader
+C:\Users\username\Desktop\reactApp>npm install babel-preset-react
+:\Users\username\Desktop\reactApp>npm install babel-preset-es2015
+
+C:\Users\username\Desktop\reactApp>touch index.html
+
+C:\Users\username\Desktop\reactApp>touch App.jsx
+
+C:\Users\username\Desktop\reactApp>touch main.js
+
+C:\Users\username\Desktop\reactApp>touch webpack.config.js
+
+
+var config = {
+   entry: './main.js',
+	
+   output: {
+      path:'./',
+      filename: 'index.js',
+   },
+	
+   devServer: {
+      inline: true,
+      port: 8080
+   },
+	
+   module: {
+      loaders: [
+         {
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel',
+				
+            query: {
+               presets: ['es2015', 'react']
+            }
+         }
+      ]
+   }
+}
+
+module.exports = config;
+
+"start": "webpack-dev-server --hot"
